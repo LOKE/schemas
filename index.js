@@ -1,4 +1,4 @@
 module.exports = {
-  ItemV2: require("./itemv2"),
-  Bill: require("./bill")
+  ItemsV2: require("./itemv2"),
+  TableBills: require("./bill")
 };

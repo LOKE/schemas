@@ -55,7 +55,7 @@ const Bill = {
     clientId: {
       type: "string",
       title: "Client ID associated with this bill",
-      examples: "2kjanduif288in8sjs"
+      examples: ["2kjanduif288in8sjs"]
     },
     items: {
       type: "array",
