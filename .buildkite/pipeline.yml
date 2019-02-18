@@ -4,6 +4,8 @@ steps:
     timeout_in_minutes: 15
     env:
       BUILDKITE_DOCKER_COMPOSE_CONTAINER: node
+      NODE_ENV: ci
+
     agents:
       docker: "*"
 
