@@ -1,0 +1,6 @@
+steps:
+  - command: ".buildkite/publish.sh"
+    label: ":blue_book:"
+    branches: master
+    agents:
+      docker: "*"

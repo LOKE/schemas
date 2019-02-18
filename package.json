@@ -1,0 +1,22 @@
+{
+  "name": "@loke/schemas",
+  "version": "1.0.0",
+  "description": "JSON schemas for LOKE services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LOKE/schemas.git"
+  },
+  "author": "LOKE",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/LOKE/schemas/issues"
+  },
+  "homepage": "https://github.com/LOKE/schemas#readme",
+  "devDependencies": {
+    "ajv": "^6.9.1"
+  }
+}

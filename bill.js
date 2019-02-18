@@ -13,8 +13,10 @@ const BillPayment = {
     },
     refId: {
       type: "string",
+      title: "Reference ID",
       description:
-        "Optionally provide a reference to the record of this payment to another system."
+        "Optionally provide a reference to the record of this payment to another system.",
+      examples: ["PAY0012", "229383773878"]
     },
     tip: {
       type: "integer",
@@ -26,18 +28,34 @@ const BillPayment = {
 
 const Bill = {
   type: "object",
+  title: "Bill",
+  description:
+    "Represents a bill for items to be paid by one or more customers",
   properties: {
     refId: {
-      type: "string"
+      type: "string",
+      title: "Reference ID",
+      description:
+        "Reference identifier for this bill in another system, typically the remote service's bill ID.",
+      minLength: 3,
+      examples: ["BILL001"]
     },
     table: {
-      type: "string"
+      type: "string",
+      description: "Table number if applicable.",
+      minLength: 1,
+      examples: ["16"]
     },
     currency: {
-      type: "string"
+      type: "string",
+      title: "Bill currency.",
+      description: "Currency used on this bill.",
+      enum: ["AUD", "NZD", "SGD", "GBP"]
     },
     clientId: {
-      type: "string"
+      type: "string",
+      title: "Client ID associated with this bill",
+      examples: "2kjanduif288in8sjs"
     },
     items: {
       type: "array",
@@ -45,15 +63,18 @@ const Bill = {
     },
     total: {
       type: "integer",
-      min: 0
+      minimum: 0,
+      examples: [1100]
     },
     tax: {
       type: "integer",
-      min: 0
+      maximum: 0,
+      examples: [100]
     },
     balance: {
       type: "integer",
-      min: 0
+      min: 0,
+      examples: [500]
     },
     payments: {
       type: "array",
