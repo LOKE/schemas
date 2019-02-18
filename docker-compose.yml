@@ -2,7 +2,7 @@ version: "2"
 services:
   node:
     image: "node:10"
-    user: "node"
+    # user: "node"
     working_dir: /home/node/app
     environment:
       - NODE_ENV=production
