@@ -1,11 +1,9 @@
 steps:
   - name: ":node: Test"
-    command: "npm ci && npm test"
+    command: ".buildkite/test.sh"
     timeout_in_minutes: 15
     env:
       BUILDKITE_DOCKER_COMPOSE_CONTAINER: node
-      NODE_ENV: ci
-
     agents:
       docker: "*"
 
