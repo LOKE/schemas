@@ -38,8 +38,8 @@ const testMacro = makeTestHelper(Bill, {
   balance: 500,
   payments: [
     {
-      amount: 600,
-      method: "Cash",
+      total: 600,
+      name: "Cash",
       refId: "PR1",
       tip: 100
     }

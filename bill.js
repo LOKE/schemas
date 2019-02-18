@@ -13,7 +13,7 @@ const BillPayment = {
       type: "integer",
       description:
         "The total amount paid on this payment instance *inclusive of tips*. Successful payments should be listed as a positive integer. Reversals as a negative integer.",
-      examples: 1200
+      examples: [1200]
     },
     refId: {
       type: "string",
@@ -67,6 +67,8 @@ const Bill = {
     },
     items: {
       type: "array",
+      description:
+        "List of items associated with this bill. *NOTE: may include discounts.*",
       items: BillItem
     },
     total: {
@@ -97,15 +99,18 @@ const Bill = {
     },
     created: {
       type: "string",
-      format: "date-time"
+      format: "date-time",
+      description: "Timestamp this bill was created."
     },
     updated: {
       type: "string",
-      format: "date-time"
+      format: "date-time",
+      description: "Timestamp this bill was last updated."
     },
     completed: {
       type: "string",
-      format: "date-time"
+      format: "date-time",
+      description: "Timestamp this bill was completed (if applicable)."
     }
   },
   required: [

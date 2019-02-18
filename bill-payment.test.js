@@ -4,19 +4,19 @@ const { makeTestHelper } = require("./_test-helper");
 const { BillPayment } = require("./bill");
 
 const testMacro = makeTestHelper(BillPayment, {
-  method: "Cash moneyz",
-  amount: 1000,
+  name: "Cash moneyz",
+  total: 1000,
   refId: "REF1",
   tip: 100
 });
 
 test("valid payment", testMacro, {}, { isValid: true });
 
-test("no method", testMacro, { method: undefined }, { isValid: false });
-test("empty method", testMacro, { method: "" }, { isValid: false });
+test("no name", testMacro, { name: undefined }, { isValid: false });
+test("empty name", testMacro, { name: "" }, { isValid: false });
 
-test("no amount", testMacro, { amount: undefined }, { isValid: false });
-test("negative amount", testMacro, { amount: -100 }, { isValid: true });
+test("no total", testMacro, { total: undefined }, { isValid: false });
+test("negative total", testMacro, { total: -100 }, { isValid: true });
 
 test("no refId", testMacro, { refId: undefined }, { isValid: true });
 test("empty refId", testMacro, { refId: "" }, { isValid: false });
