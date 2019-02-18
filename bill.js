@@ -4,7 +4,8 @@ const BillPayment = {
   type: "object",
   properties: {
     method: {
-      type: "string"
+      type: "string",
+      minLength: 1
     },
     amount: {
       type: "integer",
@@ -16,11 +17,12 @@ const BillPayment = {
       title: "Reference ID",
       description:
         "Optionally provide a reference to the record of this payment to another system.",
-      examples: ["PAY0012", "229383773878"]
+      examples: ["PAY0012", "229383773878"],
+      minLength: 1
     },
     tip: {
       type: "integer",
-      min: 1
+      minimum: 1
     }
   },
   required: ["method", "amount"]
@@ -55,7 +57,8 @@ const Bill = {
     clientId: {
       type: "string",
       title: "Client ID associated with this bill",
-      examples: ["2kjanduif288in8sjs"]
+      examples: ["2kjanduif288in8sjs"],
+      minLength: 1
     },
     items: {
       type: "array",
@@ -63,17 +66,19 @@ const Bill = {
     },
     total: {
       type: "integer",
-      minimum: 0,
+      minimum: 1,
       examples: [1100]
     },
     tax: {
       type: "integer",
-      maximum: 0,
+      description:
+        "Tax amount included on bill. This is highly recommended, but not required.",
+      minimum: 0,
       examples: [100]
     },
     balance: {
       type: "integer",
-      min: 0,
+      minimum: 0,
       examples: [500]
     },
     payments: {
@@ -99,7 +104,6 @@ const Bill = {
     "clientId",
     "items",
     "total",
-    "tax",
     "balance",
     "payments",
     "created",
@@ -107,4 +111,4 @@ const Bill = {
   ]
 };
 
-module.exports = { Bill };
+module.exports = { Bill, BillPayment };

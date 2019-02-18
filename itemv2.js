@@ -89,7 +89,7 @@ const BaseItem = {
     },
     type: {
       type: "string",
-      enum: ["discount", "adjustment"],
+      enum: ["discount", "adjustment", "item"],
       title: "Line item type",
       default: "item",
       examples: ["discount", "adjustment", "item"]

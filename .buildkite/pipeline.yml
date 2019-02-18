@@ -1,4 +1,14 @@
 steps:
+  - name: ":node: Test"
+    command: "npm ci && npm test"
+    timeout_in_minutes: 15
+    env:
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: node
+    agents:
+      docker: "*"
+
+  - wait
+
   - command: ".buildkite/publish.sh"
     label: ":blue_book:"
     branches: master

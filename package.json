@@ -4,7 +4,8 @@
   "description": "JSON schemas for LOKE services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava -v",
+    "test-watch": "ava -v -w"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/LOKE/schemas#readme",
   "devDependencies": {
-    "ajv": "^6.9.1"
+    "ajv": "^6.9.1",
+    "ava": "^1.2.1"
   }
 }
