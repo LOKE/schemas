@@ -3,14 +3,17 @@ const { BillItem } = require("./itemv2");
 const BillPayment = {
   type: "object",
   properties: {
-    method: {
+    name: {
       type: "string",
-      minLength: 1
+      description: "Method of payment or payment label",
+      minLength: 1,
+      examples: ["Cash", "App Payment - John Smith"]
     },
-    amount: {
+    total: {
       type: "integer",
       description:
-        "Successful payments should be listed as a positive integer. Reversals as a negative integer."
+        "The total amount paid on this payment instance *inclusive of tips*. Successful payments should be listed as a positive integer. Reversals as a negative integer.",
+      examples: 1200
     },
     refId: {
       type: "string",
@@ -22,10 +25,12 @@ const BillPayment = {
     },
     tip: {
       type: "integer",
-      minimum: 1
+      description: "Tip included in in this payment.",
+      minimum: 1,
+      examples: [100]
     }
   },
-  required: ["method", "amount"]
+  required: ["name", "total"]
 };
 
 const Bill = {
@@ -66,23 +71,28 @@ const Bill = {
     },
     total: {
       type: "integer",
+      description:
+        "Total amount that must be paid on this bill, ignoring any payments currently made. *Inclusive of any tax.*",
       minimum: 1,
       examples: [1100]
     },
     tax: {
       type: "integer",
       description:
-        "Tax amount included on bill. This is highly recommended, but not required.",
+        "Tax amount included on bill. This is highly recommended as it provided better feedback to the customer, but not required.",
       minimum: 0,
       examples: [100]
     },
     balance: {
       type: "integer",
+      description:
+        "Balance remaining on this bill. This will be the total, minus any payments already made on the bill.",
       minimum: 0,
       examples: [500]
     },
     payments: {
       type: "array",
+      description: "Any existing payments made on this bill.",
       items: BillPayment
     },
     created: {
