@@ -10,7 +10,7 @@ steps:
   - wait
 
   - command: ".buildkite/publish.sh"
-    label: ":blue_book:"
+    label: ":s3: Publish"
     branches: master
     agents:
       docker: "*"
