@@ -1,5 +1,5 @@
 #! /bin/bash
 set -e
 
-node generate.js
+docker-compose run node node generate
 aws s3 sync "schemas/" "s3://aston.docs/schemas/"
