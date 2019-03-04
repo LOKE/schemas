@@ -7,7 +7,6 @@ const testMacro = makeTestHelper(Bill, {
   refId: "ref1",
   table: "123",
   currency: "AUD",
-  clientId: "cli1",
   items: [
     {
       id: "ITEM1",
@@ -58,9 +57,6 @@ test("empty table", testMacro, { table: "" }, { isValid: false });
 
 test("no currency", testMacro, { currency: undefined }, { isValid: false });
 test("wrong currency", testMacro, { currency: "XYZ" }, { isValid: false });
-
-test("no clientId", testMacro, { clientId: undefined }, { isValid: false });
-test("empty clientId", testMacro, { clientId: "" }, { isValid: false });
 
 test("no total", testMacro, { total: undefined }, { isValid: false });
 test("negative total", testMacro, { total: -100 }, { isValid: false });

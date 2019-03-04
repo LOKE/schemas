@@ -59,12 +59,6 @@ const Bill = {
       description: "Currency used on this bill.",
       enum: ["AUD", "NZD", "SGD", "GBP"]
     },
-    clientId: {
-      type: "string",
-      title: "Client ID associated with this bill",
-      examples: ["2kjanduif288in8sjs"],
-      minLength: 1
-    },
     items: {
       type: "array",
       description:
@@ -116,7 +110,6 @@ const Bill = {
   required: [
     "refId",
     "currency",
-    "clientId",
     "items",
     "total",
     "balance",
