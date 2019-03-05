@@ -73,7 +73,10 @@ const Bill = {
       examples: [1100]
     },
     tax: {
-      type: "integer",
+      type: [
+        "null",
+        "integer"
+      ],
       description:
         "Tax amount included on bill. This is highly recommended as it provided better feedback to the customer, but not required.",
       minimum: 0,
