@@ -49,6 +49,25 @@ const Option = {
   }
 };
 
+const SimpleOption = {
+  type: "object",
+  properties: {
+    name: {
+      type: "string",
+      title: "Display name of the option/variation/etc",
+      default: "",
+      examples: ["Soy Milk", "Extra Hot"]
+    },
+    amount: {
+      type: "integer",
+      title: "The cost of a single instance of this item.",
+      description:
+        "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative.",
+      examples: [350]
+    }
+  }
+};
+
 const BaseItem = {
   type: "object",
   properties: {
@@ -70,7 +89,7 @@ const BaseItem = {
       type: "integer",
       title: "The cost of a single instance of this item.",
       description:
-        "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative.",
+        "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative. Excludes the cost of options.",
       examples: [350]
     },
     tax: {
@@ -100,7 +119,12 @@ const BaseItem = {
 
 const BillItem = {
   type: "object",
-  properties: Object.assign({}, BaseItem.properties, {}),
+  properties: Object.assign({}, BaseItem.properties, {
+    changes: {
+      type: "array",
+      items: SimpleOption
+    }
+  }),
   required: BaseItem.required
 };
 
