@@ -63,9 +63,10 @@ const SimpleOption = {
       title: "The cost of a single instance of this item.",
       description:
         "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative.",
-      examples: [350]
+      examples: [100, 0]
     }
-  }
+  },
+  required: ["name", "amount"]
 };
 
 const BaseItem = {
