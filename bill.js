@@ -1,4 +1,35 @@
-const { BillItem } = require("./itemv2");
+const { BaseItem } = require("./itemv2");
+
+const SubItem = {
+  type: "object",
+  properties: {
+    name: {
+      type: "string",
+      title: "Display name of the option/variation/etc",
+      default: "",
+      examples: ["Soy Milk", "Extra Hot"]
+    },
+    amount: {
+      type: "integer",
+      title: "The cost of a single instance of this item.",
+      description:
+        "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative.",
+      examples: [100, 0]
+    }
+  },
+  required: ["name", "amount"]
+};
+
+const BillItem = {
+  type: "object",
+  properties: Object.assign({}, BaseItem.properties, {
+    subItems: {
+      type: "array",
+      items: SubItem
+    }
+  }),
+  required: BaseItem.required
+};
 
 const BillPayment = {
   type: "object",
@@ -122,4 +153,4 @@ const Bill = {
   ]
 };
 
-module.exports = { Bill, BillPayment };
+module.exports = { Bill, BillItem, BillPayment };

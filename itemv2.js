@@ -70,7 +70,7 @@ const BaseItem = {
       type: "integer",
       title: "The cost of a single instance of this item.",
       description:
-        "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative.",
+        "The cost is represented in the lowest denomination (eg cents). For discounts this should be negative. Excludes the cost of options.",
       examples: [350]
     },
     tax: {
@@ -98,12 +98,6 @@ const BaseItem = {
   required: ["name", "quantity", "amount"]
 };
 
-const BillItem = {
-  type: "object",
-  properties: Object.assign({}, BaseItem.properties, {}),
-  required: BaseItem.required
-};
-
 const OrderItem = {
   type: "object",
   properties: Object.assign({}, BaseItem.properties, {
@@ -115,4 +109,4 @@ const OrderItem = {
   required: BaseItem.required
 };
 
-module.exports = { Choice, Option, OrderItem, BillItem };
+module.exports = { BaseItem, Choice, Option, OrderItem };
