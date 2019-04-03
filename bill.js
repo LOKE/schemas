@@ -150,4 +150,4 @@ const Bill = {
   ]
 };
 
-module.exports = { Bill, BillPayment };
+module.exports = { Bill, BillItem, BillPayment };

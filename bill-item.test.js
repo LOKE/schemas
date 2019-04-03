@@ -1,7 +1,7 @@
 const test = require("ava");
 
 const { makeTestHelper } = require("./_test-helper");
-const { BillItem } = require("./itemv2");
+const { BillItem } = require("./bill");
 
 const testMacro = makeTestHelper(BillItem, {
   id: "ITEM1",
@@ -34,3 +34,36 @@ test("item type", testMacro, { type: "item" }, { isValid: true });
 test("discount type", testMacro, { type: "discount" }, { isValid: true });
 test("adjustment type", testMacro, { type: "adjustment" }, { isValid: true });
 test("invalid type", testMacro, { type: "something else" }, { isValid: false });
+
+test("no subItems", testMacro, { subItems: undefined }, { isValid: true });
+test("empty subItems", testMacro, { subItems: [] }, { isValid: true });
+test(
+  "with subItems",
+  testMacro,
+  { subItems: [{ name: "Sub", amount: 100 }] },
+  { isValid: true }
+);
+test(
+  "with subItem with no name",
+  testMacro,
+  { subItems: [{ amount: 100 }] },
+  { isValid: false }
+);
+test(
+  "with subItem with no amount",
+  testMacro,
+  { subItems: [{ name: "Sub" }] },
+  { isValid: false }
+);
+test(
+  "with subItem with 0 amount",
+  testMacro,
+  { subItems: [{ name: "Sub", amount: 0 }] },
+  { isValid: true }
+);
+test(
+  "with subItem with negative amount",
+  testMacro,
+  { subItems: [{ name: "Sub", amount: -100 }] },
+  { isValid: true }
+);
