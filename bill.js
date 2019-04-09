@@ -70,11 +70,11 @@ const Bill = {
   description:
     "Represents a bill for items to be paid by one or more customers",
   properties: {
-    refId: {
+    id: {
       type: "string",
-      title: "Reference ID",
+      title: "Unique ID for this bill",
       description:
-        "Reference identifier for this bill in another system, typically the remote service's bill ID.",
+        "The bill ID is the identifier for this bill from a non-LOKE system, typically the remote service's bill ID.",
       minLength: 3,
       examples: ["BILL001"]
     },
@@ -104,10 +104,7 @@ const Bill = {
       examples: [1100]
     },
     tax: {
-      type: [
-        "null",
-        "integer"
-      ],
+      type: ["null", "integer"],
       description:
         "Tax amount included on bill. This is highly recommended as it provided better feedback to the customer, but not required.",
       minimum: 0,
