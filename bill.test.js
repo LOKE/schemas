@@ -4,7 +4,7 @@ const { makeTestHelper } = require("./_test-helper");
 const { Bill } = require("./bill");
 
 const testMacro = makeTestHelper(Bill, {
-  refId: "ref1",
+  id: "bill1",
   table: "123",
   currency: "AUD",
   items: [
@@ -50,7 +50,7 @@ const testMacro = makeTestHelper(Bill, {
 
 test("valid bill", testMacro, {}, { isValid: true });
 
-test("no refId", testMacro, { refId: undefined }, { isValid: false });
+test("no id", testMacro, { id: undefined }, { isValid: false });
 
 test("no table", testMacro, { table: undefined }, { isValid: true });
 test("empty table", testMacro, { table: "" }, { isValid: false });
