@@ -139,7 +139,7 @@ const Bill = {
     }
   },
   required: [
-    "refId",
+    "id",
     "currency",
     "items",
     "total",
