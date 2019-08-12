@@ -90,6 +90,11 @@ const Bill = {
       description: "Currency used on this bill.",
       enum: ["AUD", "NZD", "SGD", "GBP"]
     },
+    tipsAllowed: {
+      type: "boolean",
+      title: "Tips Allowed",
+      description: "Can tips be attched to this bill",
+    },
     items: {
       type: "array",
       description:
