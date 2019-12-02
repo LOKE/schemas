@@ -46,7 +46,8 @@ const Option = {
         properties: Choice
       }
     }
-  }
+  },
+  additionalProperties: false
 };
 
 const BaseItem = {
@@ -95,7 +96,8 @@ const BaseItem = {
       examples: ["discount", "adjustment", "item"]
     }
   },
-  required: ["name", "quantity", "amount"]
+  required: ["name", "quantity", "amount"],
+  additionalProperties: false
 };
 
 const OrderItem = {
@@ -106,7 +108,8 @@ const OrderItem = {
       items: Option
     }
   }),
-  required: BaseItem.required
+  required: BaseItem.required,
+  additionalProperties: false
 };
 
 module.exports = { BaseItem, Choice, Option, OrderItem };

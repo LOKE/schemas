@@ -17,7 +17,8 @@ const SubItem = {
       examples: [100, 0]
     }
   },
-  required: ["name", "amount"]
+  required: ["name", "amount"],
+  additionalProperties: false
 };
 
 const BillItem = {
@@ -28,7 +29,8 @@ const BillItem = {
       items: SubItem
     }
   }),
-  required: BaseItem.required
+  required: BaseItem.required,
+  additionalProperties: false
 };
 
 const BillPayment = {
@@ -61,7 +63,8 @@ const BillPayment = {
       examples: [100]
     }
   },
-  required: ["name", "total"]
+  required: ["name", "total"],
+  additionalProperties: false
 };
 
 const Bill = {
@@ -93,7 +96,7 @@ const Bill = {
     tipsAllowed: {
       type: "boolean",
       title: "Tips Allowed",
-      description: "Can tips be attched to this bill",
+      description: "Can tips be attached to this bill"
     },
     items: {
       type: "array",
@@ -152,7 +155,8 @@ const Bill = {
     "payments",
     "created",
     "updated"
-  ]
+  ],
+  additionalProperties: false
 };
 
 module.exports = { Bill, BillItem, BillPayment };

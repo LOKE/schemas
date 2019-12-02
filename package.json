@@ -19,6 +19,7 @@
   "homepage": "https://github.com/LOKE/schemas#readme",
   "devDependencies": {
     "ajv": "^6.9.1",
-    "ava": "^1.2.1"
+    "ava": "^1.2.1",
+    "json-schema-to-typescript": "^7.1.0"
   }
 }
