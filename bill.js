@@ -43,7 +43,7 @@ const BillPayment = {
     total: {
       type: "integer",
       description:
-        "The total amount paid on this payment instance *inclusive of tips*. Successful payments should be listed as a positive integer. Reversals as a negative integer.",
+        "The total amount paid on this payment instance *inclusive of tips and loyalty credit*. Successful payments should be listed as a positive integer. Reversals as a negative integer.",
       examples: [1200]
     },
     refId: {
@@ -57,6 +57,13 @@ const BillPayment = {
     tip: {
       type: "integer",
       description: "Tip included in in this payment.",
+      minimum: 1,
+      examples: [100]
+    },
+    payment: {
+      type: "integer",
+      description:
+        "Amount actually paid by the user, including tips. (total - tips - payment) will provide the amount the user received in loyalty benefits on this order (credit or discounts)",
       minimum: 1,
       examples: [100]
     }
@@ -93,7 +100,7 @@ const Bill = {
     tipsAllowed: {
       type: "boolean",
       title: "Tips Allowed",
-      description: "Can tips be attched to this bill",
+      description: "Can tips be attched to this bill"
     },
     items: {
       type: "array",
