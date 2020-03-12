@@ -83,9 +83,8 @@ const BaseItem = {
     quantity: {
       type: "integer",
       title: "The quantity of items ordered",
-      default: 0,
-      examples: [2],
-      minimum: 1
+      default: 1,
+      examples: [2]
     },
     type: {
       type: "string",
@@ -101,6 +100,10 @@ const BaseItem = {
 const OrderItem = {
   type: "object",
   properties: Object.assign({}, BaseItem.properties, {
+    // Order items must have quantity 1+
+    quantity: Object.assign({}, BaseItem.properties.quantity, {
+      minimum: 1
+    }),
     options: {
       type: "array",
       items: Option
