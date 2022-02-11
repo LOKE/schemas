@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/LOKE/schemas#readme",
   "devDependencies": {
-    "ajv": "^6.9.1",
+    "ajv": "^6.12.3",
     "ava": "^1.2.1"
   }
 }
